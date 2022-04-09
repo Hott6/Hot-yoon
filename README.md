@@ -57,3 +57,4 @@ else{
                 //이 activity가 잘 실행 되었는지 아닌쥐~!
                 finish()
 ```
+![seminar1](https://user-images.githubusercontent.com/66460447/162552596-9696f482-7bdc-447a-a291-8ce63111a8b2.gif)
