@@ -5,7 +5,7 @@ Sopt에 모인 Hot한 개발자들
 
 
 # 기억해야되는 부분!
- 1. margin
+ 1. mathchparent는 0dp로 설정해놓고 부모한테 제약을 걸어놓은거
  2. edt에 아무것도 입력이 안되어 있을 경우를 아는 방법
     - 방법 1 : isNullOrBlank 메서드사용
     - 방법 2 : isEmpty 메서드
