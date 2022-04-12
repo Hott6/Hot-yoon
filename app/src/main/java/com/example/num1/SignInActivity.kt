@@ -19,7 +19,6 @@ class SignInActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnLogin.setOnClickListener {
-
             val intent = Intent(this, HomeActivity::class.java)
 
             if (binding.edtId.text.isEmpty() or binding.edtPassword.text.isEmpty()) {
@@ -46,8 +45,5 @@ class SignInActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             resultLauncher.launch(intent)
         }
-
-
     }
-
 }
