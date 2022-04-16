@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">num1</string>
-    <string name="description">이름 : 최윤정\n\n 나이 : 23\nMBTI : ISFP</string>
+    <string name="description">이름 : 최윤정\n 나이 : 23\nMBTI : ISFP</string>
     <string name="tmi">안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n
     안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n
     안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
