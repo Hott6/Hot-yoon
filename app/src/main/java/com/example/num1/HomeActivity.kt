@@ -19,8 +19,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun initTransactionEvent() {
-        val fragment1 = FollowerRecyclerView()
-        val fragment2 = RepositoryRecyclerView()
+        val fragment1 = FollowerFragment()
+        val fragment2 = RepositoryFragment()
 
         supportFragmentManager.beginTransaction().add(R.id.fragment_main, fragment1).commit()
 

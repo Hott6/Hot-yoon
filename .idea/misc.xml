@@ -3,15 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/drawable/intriduceimage.xml" value="0.1575" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.23505434782608695" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_sigin_in.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_sign_up.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/fragment_follower.xml" value="0.23505434782608695" />
         <entry key="app/src/main/res/layout/fragment_follower_recycler_view.xml" value="0.23505434782608695" />
+        <entry key="app/src/main/res/layout/fragment_repository.xml" value="0.23505434782608695" />
         <entry key="app/src/main/res/layout/fragment_repository_recycler_view.xml" value="0.23505434782608695" />
         <entry key="app/src/main/res/layout/fragment_repository_tecycler_view.xml" value="0.23505434782608695" />
-        <entry key="app/src/main/res/layout/item_follower_list.xml" value="0.23505434782608695" />
+        <entry key="app/src/main/res/layout/item_follower_list.xml" value="0.25222506315811827" />
         <entry key="app/src/main/res/layout/item_repository_list.xml" value="0.23505434782608695" />
         <entry key="app/src/main/res/layout/item_sample_list.xml" value="0.23505434782608695" />
       </map>

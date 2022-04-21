@@ -25,7 +25,6 @@ class SignUpActivity : AppCompatActivity() {
                 intent.putExtra("id", binding.edtId.text.toString())
                 intent.putExtra("pw",binding.edtPassword.text.toString())
                 setResult(Activity.RESULT_OK, intent)
-                //이 activity가
                 finish()
             }
         }
