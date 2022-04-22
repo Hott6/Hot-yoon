@@ -9,6 +9,14 @@ import com.example.num1.databinding.ItemFollowerListBinding
 class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() {
     val userList = mutableListOf<UserData>()
 
+    interface OnItemClickListener{
+        fun onItemClick(v:View, data: UserData, position: Int)
+    }
+    private var listener : OnItemClickListener ? = null
+    fun setOnItemClickListener(listener : OnItemClickListener) {
+        this.listener = listener
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowerViewHolder {
         val binding =
             ItemFollowerListBinding.inflate(LayoutInflater.from(parent.context), parent,false)
@@ -18,6 +26,7 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
     override fun onBindViewHolder(holder: FollowerViewHolder, position: Int) {
         holder.onBind(userList[position])
 
+        //view에 onclicklisgner를 달고, 그 안에서 직접 만든 itemClickListener를 연결시킨다.
         holder.itemView.setOnClickListener {
             itemClickListener.onClick(it,position)
         }
@@ -34,6 +43,7 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
             binding.ivProfile.setImageResource(data.image)
             binding.tvName.text = data.name
             binding.tvIntroduce.text = data.introduction
+
         }
     }
 

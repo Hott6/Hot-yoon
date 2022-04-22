@@ -1,12 +1,11 @@
 package com.example.num1
 
-import android.graphics.Color
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import com.example.num1.databinding.FragmentFollowerBinding
 
 class FollowerFragment : Fragment() {
@@ -24,10 +23,15 @@ class FollowerFragment : Fragment() {
         return binding.root
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun initAdapter() {
         followerAdapter = FollowerAdapter()
         binding.rvFollower.adapter = followerAdapter
-        binding.rvFollower.addItemDecoration(MyDecoration(20,1))
+        binding.rvFollower.addItemDecoration(MyDecoration(20, 1))
         followerAdapter.userList.addAll(
             listOf(
                 UserData(R.drawable.maja, "최윤정", "금잔디 YB 마자용"),
@@ -38,17 +42,21 @@ class FollowerFragment : Fragment() {
             )
         )
         followerAdapter.notifyDataSetChanged()
+
         //클릭리스너 등록
-//        followerAdapter.setItemClickListener(FollowerAdapter.ItemClickListener{
-//            fun  onClick(view: View, position:Int){
-//
-//            }
-//        })
-    }
+        followerAdapter.setItemClickListener(object : FollowerAdapter.ItemClickListener {
+            override fun onClick(view: View, position: Int) {
+                val image = followerAdapter.userList[position].image
+                val name = followerAdapter.userList[position].name
+                val introduce = followerAdapter.userList[position].introduction
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+                val intent = Intent(context, DetailActivity::class.java).apply {
+                    putExtra("image", image)
+                    putExtra("name", name)
+                    putExtra("introduce", introduce)
+                }
+                startActivity(intent)
+            }
+        })
     }
-
 }

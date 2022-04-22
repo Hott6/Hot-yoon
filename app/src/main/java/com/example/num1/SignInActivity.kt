@@ -33,7 +33,7 @@ class SignInActivity : AppCompatActivity() {
             { result ->
                 if (result.resultCode == Activity.RESULT_OK) {
                     val data: Intent? = result.data
-                    val userId = data?.getStringExtra("id")
+                    val userId = data?.getStringExtra("id") //signup에서 넣어준걸 get으로 받아준다.
                     val userPw = data?.getStringExtra("pw")
                     binding.edtId.setText(userId)
                     binding.edtPassword.setText(userPw)
