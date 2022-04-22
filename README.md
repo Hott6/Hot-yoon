@@ -46,4 +46,4 @@ class MyDecoration(private val divHeight : Int, private val rowcount : Int) : Re
 저기 RecyclerView.ItemDecoraion을 쓰니까 getItemOffset과 OnDraw가 생겻다. 두둥
 저 함수 두개를 이용해서 여백을 만들어 주는 것이다.
 
-![ezgif com-gif-maker](https://user-images.githubusercontent.com/66460447/164726226-01f92fce-940c-4652-92b9-c451f4aed2a6.gif)
+<img src="/gif/seminar2.gif" width="200" height="400"/>
