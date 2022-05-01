@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Num1">
         <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignUpActivity"
             android:exported="false" />
         <activity

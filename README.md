@@ -1,60 +1,49 @@
-# Hot-yoon
-Sopt에 모인 Hot한 개발자들
+# seminar2
 
-# Seminar1
+stroke는 테두리의 두꼐와 색상을 지정함
 
+## 필수과제
+### RecyclerView에 대해서 알아봅시다.
 
-# 기억해야되는 부분!
- 1. mathchparent는 0dp로 설정해놓고 부모한테 제약을 걸어놓은거
- 2. edt에 아무것도 입력이 안되어 있을 경우를 아는 방법
-    - 방법 1 : isNullOrBlank 메서드사용
-    - 방법 2 : isEmpty 메서드
- 3. ScrollView에는 View가 한개밖에 안들어감
- 4. constraintDimensinRatio를 사용하려면 비율에 맞게 가로세로를 설정가능
+### Fragment는 
+1. 액티비티 내에서 화면 UI일부를 나타내준다.
+2. 여러 개의 프래그먼트를 조합하여 액티비티가 출력하는 한 화면의 UI표현을 가능하게 한다.
+3. 액티비티 실행 중에도 화면에 동적으로 추가되거나 다른 프래그먼트로 교체가 가능하다.
 
-## 함수함수!
-- put("전달할 값의 name", 전달할 값)
+이 프래그먼트를 사용하기 위해서 프래그먼트랑 액티비티를 연결해줄 무언가가 필요한데 그것이 Adapter이다.
 
-## 코드분석
+Viewholder는 동일한 형태의 뷰 하나에 대한 데이터 넣을 위치 정보를 알고있는 녀석을 말하는 것이다.
+
+## 성장과제
+### 2-1 DetailActivity
+    처음에 생각했던 것은 ViewHolder에는 view가 있으니까 거기서  setOnclickListner를 달아주고 이거를
+    ViewFollowerAdapter에서 startActivity()를 호출해서 intent를 사용해가지고..! 하면 되겠다 라고 생각을
+    했었는데 this가 사용이 안 되는 것임.. 이유는.. 아직도 잘 모르겠쥐만.. 그래서
+```kotlin
+     //클릭 인터페이스 정의
+    interface ItemClickListener{
+        fun onClick(view: View, position: Int)
+    }
+    //클릭 리스너 선언
+    private lateinit var itemClickListener: ItemClickListener
+
+    //클릭리스너 등록 메소드
+    fun setItemClickListener(itemClickListener: ItemClickListener){
+        this.itemClickListener = itemClickListener
+    }
+```
+이렇게 아예 클릭리스너를 만들어줘서 onVindViewHolder에 선언해줬다. \
+참고 : https://sunpil.tistory.com/181
+
+그 다음 DetailActivity에서 intent를 사용하여 불러왔다!
+### 2-2 ItemDecoration
+ MyDecoration.kt을 만들어 주었다.
 
 ```kotlin
-SignInActivity.kt임
-val resultLauncher =
-            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { result ->
-                if (result.resultCode == Activity.RESULT_OK) {
-                    val data: Intent? = result.data
-                    val userId = data?.getStringExtra("id")
-                    val userPw = data?.getStringExtra("pw")
-                    binding.edtId.setText(userId)
-                    binding.edtPassword.setText(userPw)
-                }
-            }
+class MyDecoration(private val divHeight : Int, private val rowcount : Int) : RecyclerView.ItemDecoration()
 ```
-1. registerForActivityResult : Activity에 대한 콜백 등록 후 launcher생성 ->  ~~launcher는 무엇인가..?~~
-2. ActivityResultContracts : activityresult에 대해서 contrats(계약)이 포함된 클래스
-3. startActivityForResult(): 새로운 activity를 열어줌
-4. resultCode: 위의 새로운 activity가 작업을 수행하고 나서 결과값을 판단하여 RESULT_OK 혹은 RESULT_CANCLED를 알려줌 이걸 받은 activity가 result.resultCode == Activity.RESULT_OK 이면 if문 실행
+나는 MyDecoration의 변수로 마진값을 주고싶은 크기(?)를 받아왔고 행을 사용해서 행이 2개 이상일때는 Grid를 사용했다고 생각하고 그거에 맞게끔 조건을 짜주었다.
+저기 RecyclerView.ItemDecoraion을 쓰니까 getItemOffset과 OnDraw가 생겻다. 두둥
+저 함수 두개를 이용해서 여백을 만들어 주는 것이다.
 
-### 이걸 resultLauncher에 저장했으니 사용을 해야겠죵?!
-
-```kotlin
-    binding.btnSign.setOnClickListener {
-                val intent = Intent(this, SignUpActivity::class.java)
-                resultLauncher.launch(intent)
-            }
-```
-회원가입 버튼을 누르면 signupActivity로 이동할 수 있는 intent를 생성한다. 이 intent를 resultlauncher의 launch에 넣어서 실행하면 <p>
-SignUp이 실행이 된다. 이제 여기서
-```kotlin
-SignUpActiviy.kt임
-else{
-                val intent = Intent(this ,SignInActivity::class.java)
-                //signin(도착하는 activity)에 입력한걸 이동
-                intent.putExtra("id", binding.edtId.text.toString())
-                intent.putExtra("pw",binding.edtPassword.text.toString())
-                setResult(Activity.RESULT_OK, intent)
-                //이 activity가 잘 실행 되었는지 아닌쥐~!
-                finish()
-```
- <img src="/gif/seminar1.gif" width="200" height="400"/>
+<img src="/gif/seminar2.gif" width="200" height="400"/>

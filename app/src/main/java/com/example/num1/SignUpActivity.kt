@@ -22,10 +22,9 @@ class SignUpActivity : AppCompatActivity() {
             }else{
                 val intent = Intent(this ,SignInActivity::class.java)
                 //signin(도착하는 activity)에 입력한걸 이동 즉, siginActivity로 이동 할 수 있게 해주것
-                intent.putExtra("id", binding.edtId.text.toString())
+                intent.putExtra("id", binding.edtId.text.toString())    //signup edt_id에 있는것을 signin에 넣어준다
                 intent.putExtra("pw",binding.edtPassword.text.toString())
                 setResult(Activity.RESULT_OK, intent)
-                //이 activity가
                 finish()
             }
         }
