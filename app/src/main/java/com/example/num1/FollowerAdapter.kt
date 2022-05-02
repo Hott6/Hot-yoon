@@ -23,6 +23,7 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
         return FollowerViewHolder(binding)
     }
 
+    //viewHolder와 position의 데이터를 결합시키는 함수
     override fun onBindViewHolder(holder: FollowerViewHolder, position: Int) {
         holder.onBind(userList[position])
 
@@ -32,9 +33,9 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
         }
     }
 
-    override fun getItemCount(): Int {
-        return userList.size
-    }
+    override fun getItemCount(): Int =  userList.size
+    // = { return userlist.size} 이거를 위에처럼 줄여서 쓸 수 있다. recyclerview로 보여줄 전체 데이터 개수 반환
+
 
     class FollowerViewHolder(
         private val binding: ItemFollowerListBinding
