@@ -52,3 +52,5 @@ BottomNavigation을 만들어주고 Fragment를 와따리 가따리 할 수 있�
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 이런식으로 넣어주면 된다.
+<hr>
+<img src="/gif/seminar3.gif" width="200" height="400"/>
