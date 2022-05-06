@@ -31,7 +31,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun initTransactionEvent() {
-
         childFragmentManager.commit {
             add<RepositoryFragment>(R.id.fragment_main)
         }

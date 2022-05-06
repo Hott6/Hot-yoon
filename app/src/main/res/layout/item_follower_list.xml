@@ -7,16 +7,17 @@
     android:background="@drawable/text_round"
     android:padding="10dp">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_profile"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        tools:src="@drawable/maja"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.25" />
+        app:civ_border_color="@color/black"
+        app:layout_constraintWidth_percent="0.25"
+        tools:src="@drawable/maja" />
 
     <TextView
         android:id="@+id/tv_name"
@@ -24,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@id/iv_profile"
         app:layout_constraintTop_toTopOf="@id/iv_profile"
         tools:text="이름" />
@@ -33,12 +34,12 @@
         android:id="@+id/tv_introduce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/tv_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_name"
         android:ellipsize="end"
         android:maxLines="1"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_name"
         tools:text="자기소개 택스트 입니다." />
 
 

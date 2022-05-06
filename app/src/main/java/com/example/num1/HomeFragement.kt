@@ -20,6 +20,9 @@ class HomeFragement : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
 
+        initAdapter()
+        initRabLayout()
+
         return binding.root
     }
 
@@ -29,13 +32,13 @@ class HomeFragement : Fragment() {
         sampleTabViewPagerAdapter = SampleTabViewPagerAdapter(this)
         sampleTabViewPagerAdapter.fragments.addAll(fragmentList)
 
-        binding.vpSample.adapter = sampleTabViewPagerAdapter
+        binding.vpHomefragment.adapter = sampleTabViewPagerAdapter
     }
 
     private fun initRabLayout(){
         val tabLabel = listOf("팔로잉","팔로워")
 
-        TabLayoutMediator(binding.tabSample, binding.vpSample){tab,position->
+        TabLayoutMediator(binding.tabHome, binding.vpHomefragment){tab,position->
             tab.text = tabLabel[position]
         }.attach()
     }
