@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -14,6 +14,8 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="100dp"
         android:src="@drawable/myimage"
+        app:civ_border_color="@color/soptcolor"
+        app:civ_border_width="2dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +30,7 @@
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:paddingBottom="10dp"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -35,9 +38,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/button_radius"
-        android:backgroundTint="@color/selector_bottom_navi"
-        android:text="팔로워\n목록"
+        android:background="@drawable/selector_button"
+        android:text="@string/followerlsit"
         app:layout_constraintEnd_toStartOf="@+id/btn_repo"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,10 +50,8 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:background="@drawable/button_radius"
-        android:backgroundTint="@color/selector_bottom_navi"
-        android:includeFontPadding="false"
-        android:text="레포지토리\n목록"
+        android:background="@drawable/selector_button"
+        android:text="@string/repolist"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btn_follower"

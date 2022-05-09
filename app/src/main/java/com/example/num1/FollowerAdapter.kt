@@ -42,9 +42,11 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
         private val binding: ItemFollowerListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: UserData) {
-            binding.ivProfile.setImageResource(data.image)
-            binding.tvName.text = data.name
-            binding.tvIntroduce.text = data.introduction
+            with(binding){
+                ivProfile.setImageResource(data.image)
+                tvName.text = data.name
+                tvIntroduce.text = data.introduction
+            }
 
         }
     }

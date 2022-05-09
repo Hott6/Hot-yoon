@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/noto_sanskr_regular"
         android:text="@string/ready"
-        android:textSize="17px"
+        android:textSize="17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -6,12 +6,15 @@
         <entry key="../../../../../../layout/custom_preview.xml" value="0.18958333333333333" />
         <entry key="../../../../../layout/custom_preview.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/drawable/button_radius.xml" value="0.162" />
+        <entry key="app/src/main/res/drawable/button_rectangle_click.xml" value="0.162" />
+        <entry key="app/src/main/res/drawable/button_rectangle_unclicked.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/edittext_bg.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/intriduceimage.xml" value="0.1575" />
         <entry key="app/src/main/res/drawable/menu_camera.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/menu_home.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/menu_person.xml" value="0.162" />
+        <entry key="app/src/main/res/drawable/selector_button.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/selector_edit.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/shape_unselect_edit.xml" value="0.162" />
         <entry key="app/src/main/res/drawable/text_round.xml" value="0.162" />

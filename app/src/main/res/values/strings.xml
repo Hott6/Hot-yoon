@@ -1,9 +1,22 @@
 <resources>
+
     <string name="app_name">num1</string>
+    <string name="name">이름</string>
+    <string name="inputname">이름을 입력해주세요</string>
     <string name="description">이름 : 최윤정\n 나이 : 23\nMBTI : ISFP</string>
     <string name="tmi">안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n
     안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n
     안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n안녕하세요 저는요 안드로이드 파트 최윤정 입니다. 키키키\n\n</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="ready">준비중입니다.</string>
+    <string name="inputpassword">비밀번호를 입력해주세요.</string>
+    <string name="inputId">아이디를 입력해주세요</string>
+    <string name="id">아이디</string>
+    <string name="password">비밀번호</string>
+    <string name="login">LOGIN</string>
+    <string name="signup">회원가입</string>
+    <string name="successsignup">회원가입 완료</string>
+
+    <string name="followerlsit">팔로워\n목록</string>
+    <string name="repolist">레포지토리\n목록</string>
 </resources>

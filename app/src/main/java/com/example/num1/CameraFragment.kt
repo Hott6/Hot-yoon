@@ -5,9 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.num1.databinding.FragmentHomeBinding
 
 
 class CameraFragment : Fragment() {
+    private var _binding: FragmentHomeBinding?=null
+    private val binding get() = _binding ?: error("Binding이 초기화 되지 않았습니다.")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -18,5 +21,8 @@ class CameraFragment : Fragment() {
     }
 
 
-
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
