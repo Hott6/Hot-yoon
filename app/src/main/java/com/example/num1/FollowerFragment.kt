@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.bumptech.glide.Glide
 import com.example.num1.databinding.FragmentFollowerBinding
 
 class FollowerFragment : Fragment() {
@@ -15,17 +16,13 @@ class FollowerFragment : Fragment() {
     private lateinit var followerAdapter: FollowerAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFollowerBinding.inflate(layoutInflater, container, false)
         initAdapter()
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 
     private fun initAdapter() {
@@ -42,6 +39,8 @@ class FollowerFragment : Fragment() {
             )
         )
         followerAdapter.notifyDataSetChanged()
+        //notifyDatasetChanged()는 recyclerview에 표현할 데이터를 업데이트하기 위해 주로 사용함
+
 
         //클릭리스너 등록
         followerAdapter.setItemClickListener(object : FollowerAdapter.ItemClickListener {
@@ -58,5 +57,10 @@ class FollowerFragment : Fragment() {
                 startActivity(intent)
             }
         })
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

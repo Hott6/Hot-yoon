@@ -1,49 +1,57 @@
-# seminar2
 
-stroke는 테두리의 두꼐와 색상을 지정함
-
-## 필수과제
-### RecyclerView에 대해서 알아봅시다.
-
-### Fragment는 
-1. 액티비티 내에서 화면 UI일부를 나타내준다.
-2. 여러 개의 프래그먼트를 조합하여 액티비티가 출력하는 한 화면의 UI표현을 가능하게 한다.
-3. 액티비티 실행 중에도 화면에 동적으로 추가되거나 다른 프래그먼트로 교체가 가능하다.
-
-이 프래그먼트를 사용하기 위해서 프래그먼트랑 액티비티를 연결해줄 무언가가 필요한데 그것이 Adapter이다.
-
-Viewholder는 동일한 형태의 뷰 하나에 대한 데이터 넣을 위치 정보를 알고있는 녀석을 말하는 것이다.
-
-## 성장과제
-### 2-1 DetailActivity
-    처음에 생각했던 것은 ViewHolder에는 view가 있으니까 거기서  setOnclickListner를 달아주고 이거를
-    ViewFollowerAdapter에서 startActivity()를 호출해서 intent를 사용해가지고..! 하면 되겠다 라고 생각을
-    했었는데 this가 사용이 안 되는 것임.. 이유는.. 아직도 잘 모르겠쥐만.. 그래서
-```kotlin
-     //클릭 인터페이스 정의
-    interface ItemClickListener{
-        fun onClick(view: View, position: Int)
-    }
-    //클릭 리스너 선언
-    private lateinit var itemClickListener: ItemClickListener
-
-    //클릭리스너 등록 메소드
-    fun setItemClickListener(itemClickListener: ItemClickListener){
-        this.itemClickListener = itemClickListener
-    }
-```
-이렇게 아예 클릭리스너를 만들어줘서 onVindViewHolder에 선언해줬다. \
-참고 : https://sunpil.tistory.com/181
-
-그 다음 DetailActivity에서 intent를 사용하여 불러왔다!
-### 2-2 ItemDecoration
- MyDecoration.kt을 만들어 주었다.
+### 1.필수과제
+#### Font적용하기
+fontfamily라는 속성을 이용해서 res에 font파일을 만들어 주고 거기서 적용을 해서 사용을 한다.
 
 ```kotlin
-class MyDecoration(private val divHeight : Int, private val rowcount : Int) : RecyclerView.ItemDecoration()
-```
-나는 MyDecoration의 변수로 마진값을 주고싶은 크기(?)를 받아왔고 행을 사용해서 행이 2개 이상일때는 Grid를 사용했다고 생각하고 그거에 맞게끔 조건을 짜주었다.
-저기 RecyclerView.ItemDecoraion을 쓰니까 getItemOffset과 OnDraw가 생겻다. 두둥
-저 함수 두개를 이용해서 여백을 만들어 주는 것이다.
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font
+        android:font="@font/noto_sanskr_regular"
+        android:fontStyle="normal"
+        android:fontWeight="400"/>
 
-<img src="/gif/seminar2.gif" width="200" height="400"/>
+    <font
+        android:font="@font/noto_sanskr_bold"
+        android:fontStyle="normal"
+        android:fontWeight="700"/>
+
+</font-family>
+```
+* fontfamily를 만들어서 layout 파일에서 font를 설정할 때 편리하게 해줌
+* fontWeight 같은 폰트여도 weight 값으로 다르게 사용할 수 있음
+
+font family 파일을 적용하고 Weight를 넣어주면 Weight 값에 해당하는 폰트가 적용된다
+#### profileFragmnet
+BottomNavigation을 만들어주고 Fragment를 와따리 가따리 할 수 있게 만들어 보겠다
+
+1. drawble에서 menu.xml을 만들어주고 메뉴에 들어갔으면 하는것을 <item 을 이용해서 만들어준다.
+##### menu를 눌렀을때 selector를 이용해서 메뉴아이콘이 체크가 되었을 때 컬러를 바뀌게끔 줄것이다
+2. select 되었을 경우의 xml, select되지 않았을 경우의 xml을 만들어서 두개를 [StateListDrawable(selector)](https://ju-hy.tistory.com/26)를 활용하여 만들었다.
+
+### 2.성장과제
+#### 중첩 스크롤 문제 해결하기 
+> 스크롤 뷰와 이 스크롤 뷰를 포함하는 ViewPager2 객체의 방향이 같은 경우 ViewPager2는 기본적으로 중첩된 스크롤 뷰를 지원하지 않습니다.
+
+TabLayout에서 화면이 넘어가도록 ViewPager2를 연동했는데 BottomNavigation만 스와이프 되고 Tab은 스와이프가 되지 않는다.
+따라서 
+[NestedScrollableHost.kt](https://github.com/android/views-widgets-samples/blob/master/ViewPager2/app/src/main/java/androidx/viewpager2/integration/testapp/NestedScrollableHost.kt)를 만들어주고 제공해주는 코드를 넣어준 뒤에 원하는 자식 ViewPager2에 
+```kotlin
+<org.techtown.soptseminar.NestedScrollableHost
+        android:id="@+id/nst_home"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tab_home">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_homefragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </org.techtown.soptseminar.NestedScrollableHost>
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+이런식으로 넣어주면 된다.
+<hr>
+<img src="/gif/seminar3.gif" width="200" height="400"/>
