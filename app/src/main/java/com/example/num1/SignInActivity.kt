@@ -5,10 +5,10 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import retrofit2.Call
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.num1.databinding.ActivitySiginInBinding
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Callback
 
@@ -79,6 +79,9 @@ class SignInActivity : AppCompatActivity() {
                         Toast.LENGTH_SHORT
                     ).show()
                     startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+                    if (!isFinishing){
+                        finish()
+                    }
                 } else Toast.makeText(this@SignInActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT)
                     .show()
             }

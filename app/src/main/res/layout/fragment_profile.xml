@@ -15,7 +15,7 @@
         android:layout_marginEnd="100dp"
         android:src="@drawable/myimage"
         app:civ_border_color="@color/soptcolor"
-        app:civ_border_width="2dp"
+        app:civ_border_width="4dp"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

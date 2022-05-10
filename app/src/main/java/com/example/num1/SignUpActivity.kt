@@ -4,8 +4,12 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.num1.databinding.ActivitySignUpBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
@@ -20,7 +24,7 @@ class SignUpActivity : AppCompatActivity() {
 
     fun initSignUpCompleteButton() {
         binding.btnSign.setOnClickListener {
-
+            signupNetwork()
             if (binding.edtName.text.isEmpty() or binding.edtId.text.isEmpty() or binding.edtPassword.text.isEmpty()) {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
             } else {
@@ -35,5 +39,35 @@ class SignUpActivity : AppCompatActivity() {
                 finish()
             }
         }
+    }
+
+    private fun signupNetwork() {
+        val requestSignUp = RequestSignUp(
+            id = binding.edtId.text.toString(),
+            name = binding.edtName.text.toString(),
+            password = binding.edtPassword.text.toString()
+        )
+
+        val call: Call<ResponseSignUp> = ServiceCreator.soptService.postSignUp(requestSignUp)
+
+        call.enqueue(object : Callback<ResponseSignUp> {
+            override fun onResponse(
+                call: Call<ResponseSignUp>,
+                response: Response<ResponseSignUp>
+            ) {
+                if (response.isSuccessful) {
+                    val data = response.body()?.data
+                    Toast.makeText(this@SignUpActivity,"${data?.id}회원가입에 성공했습니다.",Toast.LENGTH_SHORT).show()
+                    finish()
+                } else {
+                    Toast.makeText(this@SignUpActivity, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT)
+                    .show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseSignUp>, t: Throwable) {
+                Log.e("NetworkTest", "error:$t")
+            }
+        })
     }
 }
