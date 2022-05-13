@@ -1,7 +1,6 @@
-package com.example.num1
+package com.example.num1.view
 
 import android.os.Bundle
-import android.text.TextUtils.replace
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import com.example.num1.databinding.ActivityHomeBinding
+import com.example.num1.R
 import com.example.num1.databinding.FragmentProfileBinding
 
 

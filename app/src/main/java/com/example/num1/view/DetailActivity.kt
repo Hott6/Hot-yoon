@@ -1,4 +1,4 @@
-package com.example.num1
+package com.example.num1.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,10 +12,9 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         getFollowerInfo()
-        initImage()
-        setContentView(binding.root)
     }
 
     private fun getFollowerInfo(){
@@ -25,13 +24,6 @@ class DetailActivity : AppCompatActivity() {
             imgDetailProfile.setImageResource(intent.getIntExtra("image",-1))
             //getIntExtra(이름,원하는 유형의 값이 지정된 이름으로 저장되지 않은 경우 반환되는 값)
         }
-    }
-
-    private fun initImage(){
-        Glide.with(this)
-            .load(R.drawable.maja)
-            .circleCrop()
-            .into(binding.imgDetailProfile)
     }
 
 }

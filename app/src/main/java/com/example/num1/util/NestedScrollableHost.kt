@@ -1,4 +1,4 @@
-package org.techtown.soptseminar
+package com.example.num1.util
 
 import android.content.Context
 import android.util.AttributeSet

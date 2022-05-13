@@ -1,12 +1,10 @@
-package com.example.num1
+package com.example.num1.view
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.num1.*
 import com.example.num1.databinding.ActivityHomeBinding
-import com.example.num1.databinding.FragmentProfileBinding
 
 class HomeActivity : AppCompatActivity() {
 

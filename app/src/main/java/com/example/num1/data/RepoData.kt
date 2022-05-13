@@ -1,4 +1,4 @@
-package com.example.num1
+package com.example.num1.data
 
 data class RepoData(
     val repotitle: String,

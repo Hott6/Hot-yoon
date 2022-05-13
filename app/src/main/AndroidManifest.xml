@@ -3,6 +3,7 @@
     package="com.example.num1">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <!-- 인터넷 사용 권한-->
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
@@ -14,16 +15,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Num1">
         <activity
-            android:name=".DetailActivity"
+            android:name=".view.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".view.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".HomeActivity"
+            android:name=".view.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".SignInActivity"
+            android:name=".view.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

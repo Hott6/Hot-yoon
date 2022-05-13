@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@+id/tv_git" />
 
-    <org.techtown.soptseminar.NestedScrollableHost
+    <com.example.num1.util.NestedScrollableHost
         android:id="@+id/nst_home"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -48,5 +48,5 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-    </org.techtown.soptseminar.NestedScrollableHost>
+    </com.example.num1.util.NestedScrollableHost>
 </androidx.constraintlayout.widget.ConstraintLayout>
