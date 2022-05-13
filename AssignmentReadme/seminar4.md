@@ -145,4 +145,6 @@ object ServiceCreator { //서비스를 생성해주는 구현체 부분
 그 이유는 두구두구
 retrofit2는 HTTP API를 자바 인터페이스 형태로 사용하는 라이브러리이기에 .create를 해주는 것임
 <hr>
+<img width="500" alt="스크린샷 2022-05-13 오후 9 02 15" src="https://user-images.githubusercontent.com/66460447/168281056-0895dabf-b4cd-4f83-bcce-3a59f9d65ad6.png">
 <img src="/gif/seminnar4.gif" width="200" height="400"/>
+
