@@ -7,9 +7,10 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.num1.RequestSignIn
-import com.example.num1.ResponseSignIn
-import com.example.num1.ServiceCreator
+import com.example.num1.data.sopt.RequestSignIn
+import com.example.num1.data.sopt.ResponseSignIn
+import com.example.num1.data.ServiceCreator
+import com.example.num1.data.sopt.ResponseWrapper
 import com.example.num1.databinding.ActivitySiginInBinding
 import retrofit2.Call
 import retrofit2.Response
@@ -58,33 +59,67 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
+    fun <ResponseType> Call<ResponseType>.enqueueUtil(
+        onSuccess: (ResponseType) -> Unit,
+        onError: ((stateCode: Int) -> Unit)? = null
+    ) {
+        this.enqueue(object : Callback<ResponseType> {
+            override fun onResponse(call: Call<ResponseType>, response: Response<ResponseType>) {
+                if (response.isSuccessful) {
+                    onSuccess.invoke(response.body() ?: return)
+                } else {
+                    onError?.invoke(response.code())
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseType>, t: Throwable) {
+                Log.d("NetworkTest", "error: $t")
+            }
+        })
+    }
+
     private fun loginNetwork() {
         val requestSignIn = RequestSignIn(
             id = binding.edtId.text.toString(),
             password = binding.edtPassword.text.toString()
         )
 
-        val call: Call<ResponseSignIn> = ServiceCreator.soptService.postLogin(requestSignIn)
+        val call: Call<ResponseWrapper<ResponseSignIn>> =
+            ServiceCreator.soptService.postLogin(requestSignIn)
 
-        call.enqueue(object : Callback<ResponseSignIn> {
-            override fun onResponse(
-                call: Call<ResponseSignIn>,
-                response: Response<ResponseSignIn>
-            ) {
-                if (response.isSuccessful) {
-                    val data = response.body()?.data
-                    Toast.makeText(this@SignInActivity, "${data?.email}님 반갑습니다!", Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
-                    if (!isFinishing){
-                        finish()
-                    }
-                } else Toast.makeText(this@SignInActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT)
+        call.enqueueUtil(
+            onSuccess = {
+                val data = it.data
+                Toast.makeText(this@SignInActivity, "${data?.email}님 반갑습니다!", Toast.LENGTH_SHORT)
+                    .show()
+                startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+                finish()
+            },
+            onError = {
+                Toast.makeText(this@SignInActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT)
                     .show()
             }
+        )
 
-            override fun onFailure(call: Call<ResponseSignIn>, t: Throwable) {
-                Log.e("NetworkTest", "error:$t")
-            }
-        })
+//        call.enqueue(object : Callback<ResponseWrapper<ResponseSignIn>> {
+//            override fun onResponse(
+//                call: Call<ResponseWrapper<ResponseSignIn>>,
+//                response: Response<ResponseWrapper<ResponseSignIn>>
+//            ) {
+//                if (response.isSuccessful) {
+//                    val data = response.body()?.data
+//                    Toast.makeText(this@SignInActivity, "${data?.email}님 반갑습니다!", Toast.LENGTH_SHORT).show()
+//                    startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
+//                    if (!isFinishing){
+//                        finish()
+//                    }
+//                } else Toast.makeText(this@SignInActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT)
+//                    .show()
+//            }
+
+//        override fun onFailure(call: Call<ResponseWrapper<ResponseSignIn>>, t: Throwable) {
+//            Log.e("NetworkTest", "error:$t")
+//        }
+//    })
     }
 }
