@@ -1,4 +1,4 @@
-package com.example.num1.view
+package com.example.num1.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

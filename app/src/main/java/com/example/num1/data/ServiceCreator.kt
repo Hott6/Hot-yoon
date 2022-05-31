@@ -1,5 +1,7 @@
-package com.example.num1.api
+package com.example.num1.data
 
+import com.example.num1.api.GithubService
+import com.example.num1.api.SoptService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

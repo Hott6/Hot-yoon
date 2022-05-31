@@ -1,4 +1,4 @@
-package com.example.num1
+package com.example.num1.view.fragmnet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.num1.databinding.FragmentHomeBinding
+import com.example.num1.view.adapter.SampleTabViewPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 
@@ -27,7 +28,7 @@ class HomeFragement : Fragment() {
     }
 
     private fun initAdapter(){
-        val fragmentList = listOf(TabFragmentFollower(),TabFragmentFollowing())
+        val fragmentList = listOf(TabFragmentFollower(), TabFragmentFollowing())
 
         sampleTabViewPagerAdapter = SampleTabViewPagerAdapter(this)
         sampleTabViewPagerAdapter.fragments.addAll(fragmentList)

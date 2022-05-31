@@ -21,8 +21,10 @@ class DetailActivity : AppCompatActivity() {
         with(binding){
             tvDetailName.text = intent.getStringExtra("name")   //문자열이여서 get"string"
             tvDetailIntroduce.text = intent.getStringExtra("introduce")
-            imgDetailProfile.setImageResource(intent.getIntExtra("image",-1))
-            //getIntExtra(이름,원하는 유형의 값이 지정된 이름으로 저장되지 않은 경우 반환되는 값)
+            Glide.with(binding.root)
+                .load(intent.getStringExtra("profile"))
+                .circleCrop()
+                .into(binding.imgDetailProfile)
         }
     }
 

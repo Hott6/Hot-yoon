@@ -1,7 +1,7 @@
 package com.example.num1.api
 
-import com.example.num1.ResponseRepoInfo
-import com.example.num1.ResponseUserInfo
+import com.example.num1.data.github.ResponseRepoInfo
+import com.example.num1.data.github.ResponseUserInfo
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

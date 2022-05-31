@@ -1,4 +1,4 @@
-package com.example.num1.data.sopt
+package com.example.num1.data.github
 
 data class ResponseUserInfo(
     val login: String,
