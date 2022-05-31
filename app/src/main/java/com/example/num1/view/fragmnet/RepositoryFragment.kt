@@ -5,8 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.num1.ServiceCreator
-import com.example.num1.api.SoptService
 import com.example.num1.util.MyDecoration
 import com.example.num1.data.RepoData
 import com.example.num1.databinding.FragmentRepositoryBinding
