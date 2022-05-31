@@ -1,6 +1,5 @@
 package com.example.num1.api
 
-import com.example.num1.data.github.ResponseRepoInfo
 import com.example.num1.data.github.ResponseUserInfo
 import retrofit2.Call
 import retrofit2.http.GET
@@ -8,10 +7,10 @@ import retrofit2.http.Path
 
 interface GithubService {
 
-    @GET("users/{userId}")
-    fun repoForUser(
+    @GET("users/{userId}/followers")
+    fun getFollowers(
         @Path("userId") userId:String
-    ): Call<List<ResponseRepoInfo>>
+    ): Call<List<ResponseUserInfo>>
 
     @GET("users/{userId}")
     fun getFollowingInfo(

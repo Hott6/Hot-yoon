@@ -83,7 +83,6 @@ class SignInActivity : AppCompatActivity() {
             id = binding.edtId.text.toString(),
             password = binding.edtPassword.text.toString()
         )
-
         val call: Call<ResponseWrapper<ResponseSignIn>> =
             ServiceCreator.soptService.postLogin(requestSignIn)
 

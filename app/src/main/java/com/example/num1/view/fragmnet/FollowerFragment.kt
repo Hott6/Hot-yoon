@@ -60,23 +60,24 @@ class FollowerFragment : Fragment() {
 
     private fun followerNetwork() {
         val call: Call<List<ResponseUserInfo>> =
-            ServiceCreator.githubService.getFollowingInfo("choi")
+            ServiceCreator.githubService.getFollowers("cbj0010")
 
         call.enqueue(object : Callback<List<ResponseUserInfo>> {
             override fun onResponse(
                 call: Call<List<ResponseUserInfo>>,
                 response: Response<List<ResponseUserInfo>>
             ) {
+
                 if (response.isSuccessful) {    //불러오는게 성공하면
                     val data = response.body()!!
-                    for (i in data.indices) {
+                    data.forEach{
+                        val login  = it.login
+                        val introduce = it.html_url
+                        val imgUrl = it.avatar_url
 
-                        val login  = data[i].name
-                        val introduce = data[i].html_url
-                        val imgUrl = data[i].avatar_url
-                        followerAdapter.userList.add(UserData(login, introduce,imgUrl ))
+                        followerAdapter.userList.add(UserData(imgUrl, login, introduce))
+                        followerAdapter.notifyDataSetChanged()
                     }
-                    followerAdapter.notifyDataSetChanged()
                 } else {
                     Toast.makeText(context, "팔로워 데이터를 불러오지 못했습니다", Toast.LENGTH_SHORT)
                         .show() //머임 여기 왜 context써야됨
