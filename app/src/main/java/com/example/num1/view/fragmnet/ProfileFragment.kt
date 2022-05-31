@@ -1,4 +1,4 @@
-package com.example.num1.view
+package com.example.num1.view.fragmnet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import com.bumptech.glide.Glide
 import com.example.num1.R
 import com.example.num1.databinding.FragmentProfileBinding
 
@@ -28,6 +29,7 @@ class ProfileFragment : Fragment() {
         initTransactionEvent()
         changeToFollowerFragment()
         changeToRepositoryFragment()
+        initImage()
 
         return binding.root
     }
@@ -47,7 +49,7 @@ class ProfileFragment : Fragment() {
             binding.btnFollower.isSelected = false
             if (position == FOLLOWER_FRAGMENT) {
                 childFragmentManager.commit {
-                    replace<RepositoryFragment>(R.id.fragment_main)
+                    replaceFragment<RepositoryFragment>(R.id.fragment_main)
                 }
                 position = REPO_FRAGMENT
             }
@@ -60,11 +62,26 @@ class ProfileFragment : Fragment() {
             binding.btnFollower.isSelected = true
             if (position == REPO_FRAGMENT) {
                 childFragmentManager.commit {
-                    replace<FollowerFragment>(R.id.fragment_main)
+                    replaceFragment<FollowerFragment>(R.id.fragment_main)
                 }
                 position = FOLLOWER_FRAGMENT
             }
         }
+    }
+
+    private fun initImage(){
+        Glide.with(this)
+            .load(R.drawable.maja)
+            .circleCrop()
+            .into(binding.imageView)
+    }
+
+    private inline fun <reified T: Fragment>replaceFragment(pos : Int){
+        childFragmentManager.commit{
+            setReorderingAllowed(true)
+            replace<T>(R.id.fragment_main)
+        }
+        position = pos
     }
 
     companion object {
