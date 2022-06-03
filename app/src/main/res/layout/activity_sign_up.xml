@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".view.SignUpActivity">
 
     <TextView
         android:id="@+id/signname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:text="회원가입"
-        android:fontFamily="@font/noto_sanskr_bold"
-        android:textSize="25dp"
-        android:textStyle="bold"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/noto_sanskr_bold"
+        android:text="@string/signup"
+        android:textSize="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,9 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="55dp"
-        android:text="이름"
+        android:text="@string/name"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/signname" />
 
@@ -37,8 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="6dp"
-        android:hint="이름을 입력해주세요"
         android:background="@drawable/selector_edit"
+        android:hint="@string/inputname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/name" />
@@ -50,9 +49,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="34dp"
         android:layout_marginRight="20dp"
-        android:text="아이디"
+        android:text="@string/id"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edt_name" />
 
@@ -62,8 +61,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="6dp"
-        android:hint="아이디를 입력해주세요"
         android:background="@drawable/selector_edit"
+        android:hint="@string/inputId"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_id" />
 
@@ -74,9 +73,9 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="34dp"
         android:layout_marginRight="20dp"
-        android:text="비밀번호"
+        android:text="@string/password"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/edt_id" />
 
@@ -86,8 +85,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="6dp"
-        android:hint="아이디를 입력해주세요"
         android:background="@drawable/selector_edit"
+        android:hint="@string/inputpassword"
         android:inputType="textPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_password" />
@@ -96,11 +95,11 @@
         android:id="@+id/btn_sign"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
         android:layout_marginBottom="74dp"
-        android:text="회원가입 완료"
         android:backgroundTint="@color/green"
+        android:text="@string/successsignup"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp"
-        android:layout_marginHorizontal="20dp"/>
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

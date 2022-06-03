@@ -1,17 +1,19 @@
-package com.example.num1
+package com.example.num1.view
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.widget.ViewPager2
+import com.example.num1.*
 import com.example.num1.databinding.ActivityHomeBinding
-import com.example.num1.databinding.FragmentProfileBinding
+import com.example.num1.view.adapter.HomeViewPagerAdapter
+import com.example.num1.view.fragmnet.CameraFragment
+import com.example.num1.view.fragmnet.HomeFragement
+import com.example.num1.view.fragmnet.ProfileFragment
 
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
-    private lateinit var HomeViewPagerAdapter: HomeViewPagerAdapter
+    private lateinit var homeViewPagerAdapter: HomeViewPagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,10 +26,10 @@ class HomeActivity : AppCompatActivity() {
 
     private fun initAdapter() {
         val fragmentList = listOf(ProfileFragment(), HomeFragement(), CameraFragment())
-        HomeViewPagerAdapter = HomeViewPagerAdapter(this)
-        HomeViewPagerAdapter.fragments.addAll(fragmentList)
+        homeViewPagerAdapter = HomeViewPagerAdapter(this)
+        homeViewPagerAdapter.fragments.addAll(fragmentList)
 
-        binding.vpMain.adapter = HomeViewPagerAdapter
+        binding.vpMain.adapter = homeViewPagerAdapter
 
     }
 

@@ -1,22 +1,15 @@
-package com.example.num1
+package com.example.num1.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.example.num1.data.UserData
 import com.example.num1.databinding.ItemFollowerListBinding
 
 class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>() {
     val userList = mutableListOf<UserData>()
-
-    interface OnItemClickListener {
-        fun onItemClick(v: View, data: UserData, position: Int)
-    }
-
-    private var listener: OnItemClickListener? = null
-    fun setOnItemClickListener(listener: OnItemClickListener) {
-        this.listener = listener
-    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FollowerViewHolder {
         val binding =
@@ -42,9 +35,14 @@ class FollowerAdapter : RecyclerView.Adapter<FollowerAdapter.FollowerViewHolder>
         private val binding: ItemFollowerListBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun onBind(data: UserData) {
-            binding.ivProfile.setImageResource(data.image)
-            binding.tvName.text = data.name
-            binding.tvIntroduce.text = data.introduction
+            with(binding) {
+                Glide.with(binding.root)
+                    .load(data.image)
+                    .circleCrop()
+                    .into(binding.ivProfile)
+                tvName.text = data.name
+                tvIntroduce.text = data.introduction
+            }
 
         }
     }

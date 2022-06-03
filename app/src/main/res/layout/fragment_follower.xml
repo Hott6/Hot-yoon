@@ -12,6 +12,6 @@
        android:layout_height="match_parent"
        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
        tools:itemCount="4"
-       tools:listitem="@layout/item_follower_list"/>
+       tools:listitem="@layout/item_follower_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

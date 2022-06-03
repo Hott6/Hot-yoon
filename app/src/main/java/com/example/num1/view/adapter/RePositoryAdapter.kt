@@ -1,8 +1,9 @@
-package com.example.num1
+package com.example.num1.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.num1.data.RepoData
 import com.example.num1.databinding.ItemRepositoryListBinding
 
 class RePositoryAdapter : RecyclerView.Adapter<RePositoryAdapter.RePositoryViewHolder>() {

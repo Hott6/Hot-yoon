@@ -1,4 +1,4 @@
-package com.example.num1
+package com.example.num1.util
 
 import android.graphics.Canvas
 import android.graphics.Color

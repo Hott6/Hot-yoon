@@ -1,12 +1,14 @@
-package com.example.num1
+package com.example.num1.view.fragmnet
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
+import com.example.num1.util.MyDecoration
+import com.example.num1.data.RepoData
 import com.example.num1.databinding.FragmentRepositoryBinding
+import com.example.num1.view.adapter.RePositoryAdapter
 
 class RepositoryFragment : Fragment() {
     private var _binding: FragmentRepositoryBinding? = null
