@@ -20,18 +20,6 @@ import retrofit2.Callback
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySiginInBinding
 
-    val resultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-        { result ->
-            if (result.resultCode == Activity.RESULT_OK) {    //resultcode : 인텐트로 실행된 곳에서 돌려받은 결과 코드
-                val data: Intent? = result.data        //data : 결과 데이터가 들어있는 인텐트 객체
-                val userId = data?.getStringExtra("id") //signup에서 넣어준걸 get으로 받아준다.
-                val userPw = data?.getStringExtra("pw")
-                binding.edtId.setText(userId)
-                binding.edtPassword.setText(userPw)
-            }
-        }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -54,6 +42,18 @@ class SignInActivity : AppCompatActivity() {
             }
         }
     }
+
+    val resultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+        { result ->
+            if (result.resultCode == Activity.RESULT_OK) {    //resultcode : 인텐트로 실행된 곳에서 돌려받은 결과 코드
+                val data: Intent? = result.data        //data : 결과 데이터가 들어있는 인텐트 객체
+                val userId = data?.getStringExtra("id") //signup에서 넣어준걸 get으로 받아준다.
+                val userPw = data?.getStringExtra("pw")
+                binding.edtId.setText(userId)
+                binding.edtPassword.setText(userPw)
+            }
+        }
 
     private fun signUp() {
         binding.btnSign.setOnClickListener {

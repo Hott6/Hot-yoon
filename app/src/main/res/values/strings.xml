@@ -21,4 +21,6 @@
     <string name="repolist">레포지토리\n목록</string>
 
     <string name="autoLogin">자동로그인</string>
+    <string name="settings">환경설정</string>
+    <string name="turnoffautologin">자동로그인 해제</string>
 </resources>

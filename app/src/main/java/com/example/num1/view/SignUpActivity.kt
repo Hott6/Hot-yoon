@@ -98,32 +98,5 @@ class SignUpActivity : AppCompatActivity() {
             }
         )
 
-//        call.enqueue(object : Callback<ResponseWrapper<ResponseSignUp>> {
-//            override fun onResponse(
-//                call: Call<ResponseWrapper<ResponseSignUp>>,
-//                response: Response<ResponseWrapper<ResponseSignUp>>
-//            ) {
-//                if (response.isSuccessful) {
-//                    val data = response.body()?.data    //body가 null이 아니야? 그러면 data가져왓!
-//                    Toast.makeText(
-//                        this@SignUpActivity,
-//                        "${requestSignUp.name} 님 회원가입에 성공했습니다.",  //이거 ${requestSignup.name}이거 잘 쓴거 맞나?! 알려줘라 수빈!
-//                        Toast.LENGTH_SHORT
-//                    ).show()
-//                    passingIntent(
-//                        requestSignUp.id,
-//                        requestSignUp.password
-//                    ) //서버에서 받아온 애들을 전달 해주야 되니까 request!
-//                    finish()
-//                } else {
-//                    Toast.makeText(this@SignUpActivity, "회원가입에 실패했습니다.", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<ResponseWrapper<ResponseSignUp>>, t: Throwable) {  //서버 연결이 안됐을 경우
-//                Log.e("NetworkTest", "error:$t")
-//            }
-//        })
-
     }
 }
