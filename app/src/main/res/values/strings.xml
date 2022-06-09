@@ -19,4 +19,6 @@
 
     <string name="followerlsit">팔로워\n목록</string>
     <string name="repolist">레포지토리\n목록</string>
+
+    <string name="autoLogin">자동로그인</string>
 </resources>

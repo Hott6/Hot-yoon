@@ -12,6 +12,7 @@ import com.example.num1.data.sopt.ResponseSignIn
 import com.example.num1.data.ServiceCreator
 import com.example.num1.data.sopt.ResponseWrapper
 import com.example.num1.databinding.ActivitySiginInBinding
+import com.example.num1.util.LOGINSharedPreferences
 import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Callback
@@ -39,6 +40,8 @@ class SignInActivity : AppCompatActivity() {
 
         login()
         signUp()
+        initClickEvent()
+        isAutoLogin()
 
     }
 
@@ -99,26 +102,22 @@ class SignInActivity : AppCompatActivity() {
                     .show()
             }
         )
-
-//        call.enqueue(object : Callback<ResponseWrapper<ResponseSignIn>> {
-//            override fun onResponse(
-//                call: Call<ResponseWrapper<ResponseSignIn>>,
-//                response: Response<ResponseWrapper<ResponseSignIn>>
-//            ) {
-//                if (response.isSuccessful) {
-//                    val data = response.body()?.data
-//                    Toast.makeText(this@SignInActivity, "${data?.email}님 반갑습니다!", Toast.LENGTH_SHORT).show()
-//                    startActivity(Intent(this@SignInActivity, HomeActivity::class.java))
-//                    if (!isFinishing){
-//                        finish()
-//                    }
-//                } else Toast.makeText(this@SignInActivity, "로그인에 실패하였습니다.", Toast.LENGTH_SHORT)
-//                    .show()
-//            }
-
-//        override fun onFailure(call: Call<ResponseWrapper<ResponseSignIn>>, t: Throwable) {
-//            Log.e("NetworkTest", "error:$t")
-//        }
-//    })
     }
+
+    private fun initClickEvent() {
+        binding.btnAutoLogin.setOnClickListener {
+            binding.btnAutoLogin.isSelected = !binding.btnAutoLogin.isSelected
+            LOGINSharedPreferences.setAutoLogin(this, binding.btnAutoLogin.isSelected)
+        }
+    }
+
+    private fun isAutoLogin() {
+        if (LOGINSharedPreferences.getAutoLogin(this)) {
+            Toast.makeText(this, "자동로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, HomeActivity::class.java))
+            finish()
+        }
+    }
+
+
 }
