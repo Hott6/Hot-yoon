@@ -14,8 +14,7 @@
         android:theme="@style/Theme.Num1"
         android:usesCleartextTraffic="true">
         <activity
-<<<<<<< HEAD
-            android:name=".onboarding.OnBoarding"
+            android:name=".OnBoarding"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,11 +24,8 @@
 
         </activity>
         <activity
-            android:name=".view.activity.SettingActivity"
-=======
             android:name=".SettingActivity"
->>>>>>> parent of 2cb6a84... [FEAT] #5 온보딩 구현
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".view.activity.DetailActivity"
             android:exported="false" />

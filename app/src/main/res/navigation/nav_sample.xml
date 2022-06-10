@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/onBoarding3"
-        android:name="com.example.num1.onboarding.OnBoarding3"
+        android:name="com.example.num1.OnBoarding3"
         android:label="fragment_on_boarding3"
         tools:layout="@layout/fragment_on_boarding3" />
 </navigation>

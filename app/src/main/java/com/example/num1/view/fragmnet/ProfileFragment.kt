@@ -11,7 +11,7 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.bumptech.glide.Glide
 import com.example.num1.R
-import com.example.num1.view.activity.SettingActivity
+import com.example.num1.SettingActivity
 import com.example.num1.databinding.FragmentProfileBinding
 
 
