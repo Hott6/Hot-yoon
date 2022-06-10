@@ -13,7 +13,7 @@ import com.example.num1.data.ServiceCreator
 import com.example.num1.data.UserData
 import com.example.num1.data.github.ResponseUserInfo
 import com.example.num1.databinding.FragmentFollowerBinding
-import com.example.num1.view.DetailActivity
+import com.example.num1.view.activity.DetailActivity
 import com.example.num1.view.adapter.FollowerAdapter
 import retrofit2.Call
 import retrofit2.Callback

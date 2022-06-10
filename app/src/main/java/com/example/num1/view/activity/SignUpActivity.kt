@@ -1,4 +1,4 @@
-package com.example.num1.view
+package com.example.num1.view.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -9,7 +9,6 @@ import android.widget.Toast
 import com.example.num1.data.sopt.RequestSignUp
 import com.example.num1.data.sopt.ResponseSignUp
 import com.example.num1.data.ServiceCreator
-import com.example.num1.data.sopt.ResponseSignIn
 import com.example.num1.data.sopt.ResponseWrapper
 import com.example.num1.databinding.ActivitySignUpBinding
 import retrofit2.Call
