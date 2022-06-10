@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.num1.databinding.ActivitySettingBinding
 import com.example.num1.util.LOGINSharedPreferences
-import com.example.num1.view.SignInActivity
+import com.example.num1.view.activity.SignInActivity
 
 class SettingActivity : AppCompatActivity() {
     private lateinit var binding : ActivitySettingBinding

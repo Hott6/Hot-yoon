@@ -6,10 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.num1.databinding.FragmentOnBoarding2Binding
 import com.example.num1.databinding.FragmentOnBoarding3Binding
-import com.example.num1.databinding.FragmentProfileBinding
-import com.example.num1.view.SignInActivity
+import com.example.num1.view.activity.SignInActivity
 
 
 class OnBoarding3 : Fragment() {
@@ -28,7 +26,7 @@ class OnBoarding3 : Fragment() {
 
     private fun goSignIn(){
         binding.btnNext.setOnClickListener {
-            val intent = Intent(context,SignInActivity::class.java)
+            val intent = Intent(context, SignInActivity::class.java)
             startActivity(intent)
             activity?.finish()
         }
