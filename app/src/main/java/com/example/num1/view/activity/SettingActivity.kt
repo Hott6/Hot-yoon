@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.example.num1.databinding.ActivitySettingBinding
 import com.example.num1.util.LOGINSharedPreferences
+import com.example.num1.view.activity.HomeActivity
 import com.example.num1.view.activity.SignInActivity
 
 class SettingActivity : AppCompatActivity() {
@@ -23,6 +24,7 @@ class SettingActivity : AppCompatActivity() {
             LOGINSharedPreferences.setLogin(this)
             Toast.makeText(this, "자동로그인이 해제되었습니다.", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, SignInActivity::class.java)
+            finishAffinity()
             startActivity(intent)
         }
     }
