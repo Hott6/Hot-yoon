@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.SignInActivity">
+    tools:context=".view.activity.SignInActivity">
 
     <TextView
         android:id="@+id/Sopt"
@@ -29,6 +29,26 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/Sopt" />
+
+    <ImageButton
+        android:id="@+id/btn_auto_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selecor_login"
+        app:layout_constraintTop_toTopOf="@id/idname"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="30dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/autoLogin"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@+id/idname"
+        app:layout_constraintEnd_toStartOf="@id/btn_auto_login"
+        android:layout_marginEnd="10dp"
+        android:paddingTop="5dp"
+        />
 
     <EditText
         android:id="@+id/edt_id"

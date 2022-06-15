@@ -19,4 +19,15 @@
 
     <string name="followerlsit">팔로워\n목록</string>
     <string name="repolist">레포지토리\n목록</string>
+
+    <string name="autoLogin">자동로그인</string>
+    <string name="settings">환경설정</string>
+    <string name="turnoffautologin">자동로그인 해제</string>
+
+    <string name="onboarding">온보딩</string>
+    <string name="onboardingstart">GitHub에 오신걸\n환영합니다!</string>
+    <string name="onboardingdescriptiion">GitHub에서 즐거운 시간\n보내시길 바랍니다!</string>
+    <string name="onboardingEnd">GitHub를\n시작해봅시다!</string>
+    <string name="next">다음으로</string>
+    <string name="dostart">시작하기</string>
 </resources>

@@ -10,5 +10,9 @@
         android:font="@font/noto_sanskr_bold"
         android:fontStyle="normal"
         android:fontWeight="700"/>
+    <font
+        android:font="@font/noto_sanskr_bold"
+        android:fontStyle="normal"
+        android:fontWeight="800" />
 
 </font-family>

@@ -1,15 +1,17 @@
 package com.example.num1.view.fragmnet
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.bumptech.glide.Glide
 import com.example.num1.R
+import com.example.num1.SettingActivity
 import com.example.num1.databinding.FragmentProfileBinding
 
 
@@ -30,7 +32,7 @@ class ProfileFragment : Fragment() {
         changeToFollowerFragment()
         changeToRepositoryFragment()
         initImage()
-
+        clickSetting()
         return binding.root
     }
 
@@ -69,15 +71,22 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun initImage(){
+    private fun initImage() {
         Glide.with(this)
             .load(R.drawable.maja)
             .circleCrop()
             .into(binding.imageView)
     }
 
-    private inline fun <reified T: Fragment>replaceFragment(pos : Int){
-        childFragmentManager.commit{
+    private fun clickSetting() {
+        binding.ivSetting.setOnClickListener {
+            val intent = Intent(context, SettingActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private inline fun <reified T : Fragment> replaceFragment(pos: Int) {
+        childFragmentManager.commit {
             setReorderingAllowed(true)
             replace<T>(R.id.fragment_main)
         }
